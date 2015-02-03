@@ -26,7 +26,7 @@ public class OverviewPage extends ActionBarActivity {
         des.setText(m.getDescription());
 
         TextView qA = (TextView) findViewById(R.id.qAmount);
-        qA.setText("There are "+Integer.toString(m.qSize())+" in this quiz");
+        qA.setText("There are "+Integer.toString(m.qSize())+" questions in this quiz");
 
         Button begin = (Button) findViewById(R.id.btn_begin);
 
