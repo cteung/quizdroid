@@ -97,15 +97,14 @@ public class QuestionPage extends ActionBarActivity {
                 });
     }
 
-    @Override
-    public void onBackPressed() {
-        // super.onBackPressed();
-
-        m.progressBack();
-        Intent intent = new Intent();
-        intent.putExtra("topic", m);
-        setResult(RESULT_OK, intent);
-        finish();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            m.progressBack();
+            if (gotCorrect){
+                m.correctBack();
+                gotCorrect = false;
+            }
+        }
     }
 
     @Override
