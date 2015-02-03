@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class SummaryPage extends ActionBarActivity {
 
-    private TopicMath m;
+    private Topic m;
     boolean gotCorrect;
 
     @Override
@@ -23,7 +23,7 @@ public class SummaryPage extends ActionBarActivity {
 
         // Get the Intent that opened this activity
         Intent launchedMe = getIntent();
-        m = (TopicMath)launchedMe.getSerializableExtra("topic");  // get data that was passed from first activity
+        m = (Topic)launchedMe.getSerializableExtra("topic");  // get data that was passed from first activity
 
         final String selectedAnswer = (String)launchedMe.getSerializableExtra("selectedAnswer");
         Button summary = (Button) findViewById(R.id.btn_summary);

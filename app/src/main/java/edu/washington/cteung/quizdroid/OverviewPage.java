@@ -19,7 +19,7 @@ public class OverviewPage extends ActionBarActivity {
 
         // Get the Intent that opened this activity
         Intent launchedMe = getIntent();
-        final Topic m = (TopicMath)launchedMe.getSerializableExtra("topic");  // get data that was passed from first activity
+        final Topic m = (Topic)launchedMe.getSerializableExtra("topic");  // get data that was passed from first activity
 
         // add the extra data into the text view of the 2nd activity (this layout)
         TextView des = (TextView) findViewById(R.id.description);
