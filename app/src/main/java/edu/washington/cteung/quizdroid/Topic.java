@@ -6,17 +6,16 @@ import java.util.ArrayList;
 /**
  * Created by chris_000 on 2/3/2015.
  */
+
+//Superclass to represent a topic and its associated questions
 public abstract class Topic implements Serializable {
 
     private String description;
     private ArrayList<Question> Questions;
     private int progress = 0;
     private int correct = 0;
-    
-    public Question getQuestionAtIndex(int i) {
-        return Questions.get(i);
-    }
 
+    //Returns current question in the quiz
     public Question currentQuestion() {
         return Questions.get(progress-1);
     }

@@ -8,15 +8,17 @@ import java.util.ArrayList;
 /**
  * Created by chris_000 on 2/2/2015.
  */
+
+//Builds questions for topic
 public class TopicMath extends Topic {
 
     public TopicMath() {
-        String q;
-        String[] a;
-        int ans;
-        ArrayList<Question> qu = new ArrayList<Question>();
+        String q; //question
+        String[] a; //array of possible answers
+        int ans; //index of correct answer in array a
+        ArrayList<Question> qu = new ArrayList<Question>(); //List of each question
 
-        setDescription("Math....");
+        setDescription("This quiz is about Math....");
 
         q = "2+4";
         a = new String[]{"6", "1", "3", "4"};

@@ -18,7 +18,7 @@ public class MainActivity extends ActionBarActivity {
 
         Button b_math = (Button) findViewById(R.id.btn_math);
 
-        // On button click Open QuestionPage activity
+        // On button click Open QuestionPage activity for Math Topic
         b_math.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,19 +27,16 @@ public class MainActivity extends ActionBarActivity {
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", new TopicMath());
 
-
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
                 }
-                // code still runs asynchronously
 
-                //finish(); // kill this instance self (this activity)
             }
         });
 
         Button b_phys = (Button) findViewById(R.id.btn_phys);
 
-        // On button click Open QuestionPage activity
+        // On button click Open QuestionPage activity for Physics Topic
         b_phys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,19 +45,16 @@ public class MainActivity extends ActionBarActivity {
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", new TopicPhysics());
 
-
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
                 }
-                // code still runs asynchronously
 
-                //finish(); // kill this instance self (this activity)
             }
         });
 
         Button b_marvel = (Button) findViewById(R.id.btn_marvel);
 
-        // On button click QuestionPage activity
+        // On button click QuestionPage activity for Marvel Topic
         b_marvel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,13 +63,10 @@ public class MainActivity extends ActionBarActivity {
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", new TopicMarvel());
 
-
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
                 }
-                // code still runs asynchronously
 
-                //finish(); // kill this instance self (this activity)
             }
         });
     }

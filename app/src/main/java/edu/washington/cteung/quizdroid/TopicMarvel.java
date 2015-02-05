@@ -5,40 +5,41 @@ import java.util.ArrayList;
 /**
  * Created by chris_000 on 2/3/2015.
  */
+
+//Builds questions for topic
 public class TopicMarvel extends Topic{
     public TopicMarvel() {
-        String q;
-        String[] a;
-        int ans;
-        ArrayList<Question> qu = new ArrayList<Question>();
+        String q; //question
+        String[] a; //array of possible answers
+        int ans; //index of correct answer in array a
+        ArrayList<Question> qu = new ArrayList<Question>(); //List of each question
 
-        setDescription("Marvel Super Heroes....");
+        setDescription("This quiz is about Marvel Super Heroes....");
 
-        q = "q1";
-        a = new String[]{"w", "c", "w", "w"};
-        ans = 1;
-        qu.add(new Question(q, a, ans));
-
-        q = "q2";
-        a = new String[]{"w", "w", "w", "c"};
-        ans = 3;
-        qu.add(new Question(q, a, ans));
-
-        q = "q3";
-        a = new String[]{"w", "w", "c", "w"};
+        q = "The Fantastic Four have the headquarters in what building?";
+        a = new String[]{"Fantastic Headquarters", "Stark Tower", "Baxter Building", "Xavier Institute"};
         ans = 2;
         qu.add(new Question(q, a, ans));
 
-        q = "q4";
-        a = new String[]{"w", "c", "w", "w"};
+        q = "Peter Parker works as a photographer for:";
+        a = new String[]{"The Daily Planet", "The New York Times", "The Rolling Stone", "The Daily Bugle"};
+        ans = 3;
+        qu.add(new Question(q, a, ans));
+
+        q = "S.H.I.E.L.D.'s highest ranking agent is";
+        a = new String[]{"Steven Rogers", "Peter Parker", "Nick Fury", "Natalia Romanova"};
+        ans = 2;
+        qu.add(new Question(q, a, ans));
+
+        q = "Captain America was frozen in which war?";
+        a = new String[]{"World War I", "World War II", "Cold War", "American Civil War"};
         ans = 1;
         qu.add(new Question(q, a, ans));
 
-        q = "q5";
-        a = new String[]{"c", "w", "w", "w"};
-        ans = 0;
+        q = "The vampire hunter Blade is a:";
+        a = new String[]{"Mutant", "Human", "Vampire", "Half vampire"};
+        ans = 3;
         qu.add(new Question(q, a, ans));
-
 
         setQuestions(qu);
     }

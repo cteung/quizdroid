@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:text="Description"
         android:id="@+id/description"
+        android:layout_marginTop="47dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Begin"
         android:id="@+id/btn_begin"
+        android:layout_marginBottom="58dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
