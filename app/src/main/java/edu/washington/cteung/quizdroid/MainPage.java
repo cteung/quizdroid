@@ -11,6 +11,8 @@ import android.view.MenuItem;
 
 public class MainPage extends ActionBarActivity {
 
+    private Topic topic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +20,7 @@ public class MainPage extends ActionBarActivity {
 
         // Get the Intent that opened this activity
         Intent launchedMe = getIntent();
-        final Topic topic = (Topic)launchedMe.getSerializableExtra("topic");  // get data that was passed from first activity
+        topic = (Topic)launchedMe.getSerializableExtra("topic");  // get data that was passed from first activity
 
         FragmentManager fm = getFragmentManager();
 
@@ -26,8 +28,7 @@ public class MainPage extends ActionBarActivity {
         OverviewFragment o = new OverviewFragment();
         o.topic = topic;
         FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.fragmentView, o);
-        ft.addToBackStack(null);
+        ft.replace(R.id.fragmentView, o);
         ft.commit();
     }
 
@@ -36,6 +37,7 @@ public class MainPage extends ActionBarActivity {
         if (getFragmentManager().getBackStackEntryCount() == 0) {
             this.finish();
         } else {
+            topic.progressBack();
             getFragmentManager().popBackStack();
         }
     }
