@@ -14,7 +14,7 @@ public class MainPage extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mainPage);
+        setContentView(R.layout.activity_page);
 
         // Get the Intent that opened this activity
         Intent launchedMe = getIntent();
