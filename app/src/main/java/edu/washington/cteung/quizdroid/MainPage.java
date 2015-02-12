@@ -27,7 +27,17 @@ public class MainPage extends ActionBarActivity {
         o.topic = topic;
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(R.id.fragmentView, o);
+        ft.addToBackStack(null);
         ft.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
+        } else {
+            getFragmentManager().popBackStack();
+        }
     }
 
     @Override

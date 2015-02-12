@@ -85,6 +85,7 @@ public class QuestionFragment extends Fragment {
                 sf.selectedAnswer = selectedAnswer;
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fragmentView, sf);
+                ft.addToBackStack(null);
                 ft.commit();
             }
         });

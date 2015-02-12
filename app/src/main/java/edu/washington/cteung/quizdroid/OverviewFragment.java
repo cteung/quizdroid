@@ -40,6 +40,7 @@ public class OverviewFragment extends Fragment {
                 qf.topic = topic;
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fragmentView, qf);
+                ft.addToBackStack(null);
                 ft.commit();
         }
         });

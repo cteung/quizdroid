@@ -18,7 +18,7 @@ public class MainActivity extends ActionBarActivity {
 
         Button b_math = (Button) findViewById(R.id.btn_math);
 
-        // On button click Open QuestionPage activity for Math Topic
+        // On button click Open MainPage activity for Math Topic
         b_math.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
 
         Button b_phys = (Button) findViewById(R.id.btn_phys);
 
-        // On button click Open QuestionPage activity for Physics Topic
+        // On button click Open MainPage activity for Physics Topic
         b_phys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
 
         Button b_marvel = (Button) findViewById(R.id.btn_marvel);
 
-        // On button click QuestionPage activity for Marvel Topic
+        // On button click MainPage activity for Marvel Topic
         b_marvel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
