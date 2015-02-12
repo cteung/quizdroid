@@ -18,55 +18,64 @@ public class MainActivity extends ActionBarActivity {
 
         Button b_math = (Button) findViewById(R.id.btn_math);
 
-        // On button click Open QuestionPage activity for Math Topic
+        // On button click Open QuestionPage activity
         b_math.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
+                Intent nextActivity = new Intent(MainActivity.this, OverviewPage.class);
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", new TopicMath());
 
+
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
                 }
+                // code still runs asynchronously
 
+                //finish(); // kill this instance self (this activity)
             }
         });
 
         Button b_phys = (Button) findViewById(R.id.btn_phys);
 
-        // On button click Open QuestionPage activity for Physics Topic
+        // On button click Open QuestionPage activity
         b_phys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
+                Intent nextActivity = new Intent(MainActivity.this, OverviewPage.class);
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", new TopicPhysics());
 
+
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
                 }
+                // code still runs asynchronously
 
+                //finish(); // kill this instance self (this activity)
             }
         });
 
         Button b_marvel = (Button) findViewById(R.id.btn_marvel);
 
-        // On button click QuestionPage activity for Marvel Topic
+        // On button click QuestionPage activity
         b_marvel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
+                Intent nextActivity = new Intent(MainActivity.this, OverviewPage.class);
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", new TopicMarvel());
 
+
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
                 }
+                // code still runs asynchronously
 
+                //finish(); // kill this instance self (this activity)
             }
         });
     }
