@@ -10,6 +10,7 @@ import java.util.ArrayList;
 //Superclass to represent a topic and its associated questions
 public abstract class Topic implements Serializable {
 
+    private String title;
     private String description;
     private ArrayList<Question> Questions;
     private int progress = 0;
@@ -62,5 +63,13 @@ public abstract class Topic implements Serializable {
 
     public void setQuestions(ArrayList<Question> q) {
         Questions = q;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+
+    public void setTitle(String t){
+        title = t;
     }
 }

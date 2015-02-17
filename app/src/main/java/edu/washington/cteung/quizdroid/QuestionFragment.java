@@ -20,6 +20,8 @@ public class QuestionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((MainPage) getActivity()).setActionBarTitle("Question");
+
         // Inflate the layout for this fragment
         final View rootView =  inflater.inflate(R.layout.fragment_question, container, false);
 

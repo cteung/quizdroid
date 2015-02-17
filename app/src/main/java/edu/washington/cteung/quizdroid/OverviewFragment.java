@@ -18,6 +18,8 @@ public class OverviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MainPage) getActivity()).setActionBarTitle("Overview");
+
         View rootView =  inflater.inflate(R.layout.fragment_overview, container, false);
 
         TextView des = (TextView) rootView.findViewById(R.id.description);

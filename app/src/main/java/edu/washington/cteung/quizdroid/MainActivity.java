@@ -16,16 +16,19 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button b_math = (Button) findViewById(R.id.btn_math);
+        final TopicRepository tr = QuizApp.getInstance().getTr();
+
+        final Button b0 = (Button) findViewById(R.id.btn0);
 
         // On button click Open MainPage activity for Math Topic
-        b_math.setOnClickListener(new View.OnClickListener() {
+        b0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
 
                 // add data to be passed to next activity
-                nextActivity.putExtra("topic", new TopicMath());
+                nextActivity.putExtra("topic", tr.getTopicAtIndex(0));
+                b0.setText(tr.getTopicAtIndex(0).getTitle());
 
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
@@ -34,16 +37,17 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        Button b_phys = (Button) findViewById(R.id.btn_phys);
+        final Button b1 = (Button) findViewById(R.id.btn1);
 
         // On button click Open MainPage activity for Physics Topic
-        b_phys.setOnClickListener(new View.OnClickListener() {
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
 
                 // add data to be passed to next activity
-                nextActivity.putExtra("topic", new TopicPhysics());
+                nextActivity.putExtra("topic", tr.getTopicAtIndex(1));
+                b1.setText(tr.getTopicAtIndex(1).getTitle());
 
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
@@ -52,16 +56,17 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        Button b_marvel = (Button) findViewById(R.id.btn_marvel);
+        final Button b2 = (Button) findViewById(R.id.btn2);
 
         // On button click MainPage activity for Marvel Topic
-        b_marvel.setOnClickListener(new View.OnClickListener() {
+        b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
 
                 // add data to be passed to next activity
-                nextActivity.putExtra("topic", new TopicMarvel());
+                nextActivity.putExtra("topic", tr.getTopicAtIndex(2));
+                b2.setText(tr.getTopicAtIndex(2).getTitle());
 
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity

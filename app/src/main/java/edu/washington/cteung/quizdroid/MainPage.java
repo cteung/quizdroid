@@ -63,4 +63,8 @@ public class MainPage extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
+    }
 }

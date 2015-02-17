@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Math"
-        android:id="@+id/btn_math"
+        android:id="@+id/btn0"
         android:layout_marginTop="78dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Physics"
-        android:id="@+id/btn_phys"
+        android:id="@+id/btn1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Marvel Super Heroes"
-        android:id="@+id/btn_marvel"
+        android:id="@+id/btn2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="87dp" />

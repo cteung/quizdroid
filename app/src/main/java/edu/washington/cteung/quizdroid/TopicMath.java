@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class TopicMath extends Topic {
 
     public TopicMath() {
+        setTitle("Math");
         String q; //question
         String[] a; //array of possible answers
         int ans; //index of correct answer in array a

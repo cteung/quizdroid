@@ -21,6 +21,9 @@ public class SummaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ((MainPage) getActivity()).setActionBarTitle("Summary");
+
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_summary, container, false);
 

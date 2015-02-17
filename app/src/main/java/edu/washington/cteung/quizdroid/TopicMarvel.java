@@ -9,6 +9,7 @@ import java.util.ArrayList;
 //Builds questions for topic
 public class TopicMarvel extends Topic{
     public TopicMarvel() {
+        setTitle("Marvel Super Heroes");
         String q; //question
         String[] a; //array of possible answers
         int ans; //index of correct answer in array a

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class TopicPhysics extends Topic {
 
     public TopicPhysics() {
+        setTitle("Physics");
         String q; //question
         String[] a; //array of possible answers
         int ans; //index of correct answer in array a
