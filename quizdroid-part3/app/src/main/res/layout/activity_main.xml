@@ -40,22 +40,4 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:id="@+id/btnSettings"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textViewSettings"
-        android:layout_alignTop="@+id/btn0"
-        android:layout_toLeftOf="@+id/btn2"
-        android:layout_toStartOf="@+id/btn2" />
-
 </RelativeLayout>

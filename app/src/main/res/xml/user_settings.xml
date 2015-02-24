@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Settings" >
+        <EditTextPreference
+            android:title="URL"
+            android:summary="Set URL"
+            android:key="prefURL"/>
+        <EditTextPreference
+            android:title="Freq"
+            android:summary="Minutes between each check"
+            android:key="prefFreq"
+            android:numeric="integer"/>
+    </PreferenceCategory>
+</PreferenceScreen>
