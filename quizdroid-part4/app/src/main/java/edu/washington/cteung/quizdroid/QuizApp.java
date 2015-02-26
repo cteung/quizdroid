@@ -1,8 +1,6 @@
 package edu.washington.cteung.quizdroid;
 
 import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 /**
@@ -31,16 +29,7 @@ public class QuizApp extends Application {
     {
         Log.d("Singleton", "QuizApp created!");
         super.onCreate();
-
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        MainActivity.url = sharedPrefs.getString("prefURL", "NOURL");
-
-        new AsyncTaskParseJson().execute();
-
-    }
-
-    public static void setTr(TopicRepository t) {
-        tr = t;
+        tr = new TopicRepository();
     }
 
 }

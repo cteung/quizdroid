@@ -1,19 +1,13 @@
 package edu.washington.cteung.quizdroid;
 
 import android.app.AlarmManager;
-import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,23 +15,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.FileInputStream;
-
 
 public class MainActivity extends ActionBarActivity {
 
-    private static Context context;
     private static final int SETTINGS_RESULT = 1;
     private int min;
     private PendingIntent pendingIntent;
     private Intent alarmIntent;
-    public static String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        context = getApplicationContext();
         setContentView(R.layout.activity_main);
 
         displayUserSettings();
@@ -111,56 +99,8 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo ni = cm.getActiveNetworkInfo();
-        if (ni == null) {
-            // There are no active networks.
-            Toast.makeText(getApplicationContext(), "No active network", Toast.LENGTH_SHORT).show();
-        }else if (ni.isConnected()){
-            Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
-        }
-
-        checkAirplaneMode();
     }
 
-    private void checkAirplaneMode() {
-        int mode;
-            mode = Settings.System.getInt(this.getContentResolver(),
-                    Settings.System.AIRPLANE_MODE_ON, 0);
-        if(mode == 1 /* airplane mode is on */) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Sorry!")
-                    .setMessage("This app doesn't work with Airplane mode.\n"
-                            + "Please disable Airplane mode.\n")
-                    .setPositiveButton("Open Settings", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS));
-                        }
-                    })
-                    .show();
-        }
-    }
-
-    public void dlFail (){
-        new AlertDialog.Builder(MainActivity.getAppContext())
-                .setTitle("Sorry!")
-                .setMessage("App failed to download questions.")
-                .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        new AsyncTaskParseJson().execute();
-                    }
-                })
-                .setNegativeButton("Quit and try again later", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        new AsyncTaskParseJson().execute();
-                    }
-                })
-                .show();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -207,11 +147,11 @@ public class MainActivity extends ActionBarActivity {
     private void displayUserSettings()
     {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        url = sharedPrefs.getString("prefURL", "NOURL");
 
         String  settings = "";
 
         settings=settings+"URL: " + sharedPrefs.getString("prefURL", "NOURL");
+
 
         min = Integer.parseInt(sharedPrefs.getString("prefFreq", "0"));
         if (min > 0){
@@ -235,13 +175,5 @@ public class MainActivity extends ActionBarActivity {
         manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
         Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
 
-    }
-
-    public void close() {
-        finish();
-    }
-
-    public static Context getAppContext() {
-        return context;
     }
 }
