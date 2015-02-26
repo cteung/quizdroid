@@ -18,24 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".topic_math"
-            android:label="@string/title_activity_topic_math" >
-        </activity>
-        <activity
             android:name=".MainPage"
             android:label="@string/title_activity_overview" >
-        </activity>
-        <activity
-            android:name=".QuestionPage"
-            android:label="@string/title_activity_question" >
-        </activity>
-        <activity
-            android:name=".SummaryPage"
-            android:label="@string/title_activity_summary" >
-        </activity>
-        <activity
-            android:name=".preferences"
-            android:label="@string/title_activity_preferences" >
         </activity>
         <activity
             android:name=".UserSetting" >

@@ -14,8 +14,8 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         String u = intent.getStringExtra("URL");
-
         // For our recurring task, we'll just display a message
         Toast.makeText(context, u, Toast.LENGTH_SHORT).show();
+        new AsyncTaskParseJson().execute();
     }
 }
