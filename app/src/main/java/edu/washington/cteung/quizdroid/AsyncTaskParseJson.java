@@ -1,36 +1,26 @@
 package edu.washington.cteung.quizdroid;
 
 import android.app.AlertDialog;
-import android.app.Application;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.provider.Settings;
-import android.util.Log;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 
 /**
  * Created by chris_000 on 2/25/2015.
  */
 
+
 public class AsyncTaskParseJson extends AsyncTask<String, String, String> {
 
-    public static JSONArray json;
+
+    AlertDialog.Builder alertDialog;
+    public boolean dl;
 
     @Override
-    protected void onPreExecute() {}
+    protected void onPreExecute() {
+
+    }
 
     @Override
     protected String doInBackground(String... arg0) {
@@ -39,18 +29,35 @@ public class AsyncTaskParseJson extends AsyncTask<String, String, String> {
         JsonParser jParser = new JsonParser();
         try{
             // get json string from url
+            JSONArray json;
             json = jParser.getJSONFromUrl(MainActivity.url);
-            QuizApp.setTr(new TopicRepository(AsyncTaskParseJson.json));
-
+            QuizApp.setTr(new TopicRepository(json));
+            dl = true;
         }catch (Exception e) {
-            MainActivity.dlFail();
+            dl = false;
         }
-
         return null;
     }
 
     @Override
-    protected void onPostExecute(String strFromDoInBg) {}
-
-
+    protected void onPostExecute(String strFromDoInBg) {
+        if (!dl){
+            alertDialog = new AlertDialog.Builder(MainActivity.getAppContext());
+            alertDialog.setTitle("Sorry!");
+            alertDialog.setMessage("App failed to download questions.");
+            alertDialog.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    new AsyncTaskParseJson().execute();
+                }
+            });
+            alertDialog.setNegativeButton("Quit and try again later", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    MainActivity.activity.finish();
+                }
+            });
+            alertDialog.create().show();
+        }
+    }
 }

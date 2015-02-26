@@ -1,5 +1,6 @@
 package edu.washington.cteung.quizdroid;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
@@ -13,7 +14,6 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,12 +21,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.FileInputStream;
-
 
 public class MainActivity extends ActionBarActivity {
 
-    private static Context context;
+    public static Activity activity;
     private static final int SETTINGS_RESULT = 1;
     private int min;
     private PendingIntent pendingIntent;
@@ -37,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        context = getApplicationContext();
+        activity = this;
         setContentView(R.layout.activity_main);
 
         displayUserSettings();
@@ -143,25 +141,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void dlFail (){
-        new AlertDialog.Builder(MainActivity.getAppContext())
-                .setTitle("Sorry!")
-                .setMessage("App failed to download questions.")
-                .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        new AsyncTaskParseJson().execute();
-                    }
-                })
-                .setNegativeButton("Quit and try again later", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        new AsyncTaskParseJson().execute();
-                    }
-                })
-                .show();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -237,11 +216,8 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void close() {
-        finish();
+    public static Context getAppContext() {
+        return activity;
     }
 
-    public static Context getAppContext() {
-        return context;
-    }
 }
