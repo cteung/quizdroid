@@ -21,6 +21,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -38,9 +42,8 @@ public class MainActivity extends ActionBarActivity {
         activity = this;
         setContentView(R.layout.activity_main);
 
-        displayUserSettings();
 
-        final TopicRepository tr = QuizApp.getInstance().getTr();
+        displayUserSettings();
 
         final Button b0 = (Button) findViewById(R.id.btn0);
 
@@ -49,6 +52,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
+
+                TopicRepository tr = QuizApp.getInstance().getTr();
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", tr.getTopicAtIndex(0));
@@ -69,6 +74,8 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
 
+                TopicRepository tr = QuizApp.getInstance().getTr();
+
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", tr.getTopicAtIndex(1));
                 b1.setText(tr.getTopicAtIndex(1).getTitle());
@@ -87,6 +94,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent nextActivity = new Intent(MainActivity.this, MainPage.class);
+
+                TopicRepository tr = QuizApp.getInstance().getTr();
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", tr.getTopicAtIndex(2));

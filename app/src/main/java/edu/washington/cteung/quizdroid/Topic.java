@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 
 //Superclass to represent a topic and its associated questions
-public abstract class Topic implements Serializable {
+public class Topic implements Serializable {
 
     private String title;
     private String description;

@@ -1,10 +1,14 @@
 package edu.washington.cteung.quizdroid;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 
 import org.json.JSONArray;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 /**
  * Created by chris_000 on 2/25/2015.
@@ -16,6 +20,7 @@ public class AsyncTaskParseJson extends AsyncTask<String, String, String> {
 
     AlertDialog.Builder alertDialog;
     public boolean dl;
+
 
     @Override
     protected void onPreExecute() {
@@ -31,8 +36,9 @@ public class AsyncTaskParseJson extends AsyncTask<String, String, String> {
             // get json string from url
             JSONArray json;
             json = jParser.getJSONFromUrl(MainActivity.url);
-            QuizApp.setTr(new TopicRepository(json));
+            QuizApp.getInstance().setTr(new TopicRepository(json));
             dl = true;
+
         }catch (Exception e) {
             dl = false;
         }
