@@ -3,6 +3,7 @@ package edu.washington.cteung.quizdroid;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.Toast;
 
 /**
@@ -16,6 +17,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         String u = intent.getStringExtra("URL");
         // For our recurring task, we'll just display a message
         Toast.makeText(context, u, Toast.LENGTH_SHORT).show();
+
         new AsyncTaskParseJson().execute();
     }
 }

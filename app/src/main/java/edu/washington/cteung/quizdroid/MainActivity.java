@@ -21,9 +21,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -57,7 +60,7 @@ public class MainActivity extends ActionBarActivity {
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", tr.getTopicAtIndex(0));
-                b0.setText(tr.getTopicAtIndex(0).getTitle());
+                setBtnText();
 
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
@@ -78,7 +81,7 @@ public class MainActivity extends ActionBarActivity {
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", tr.getTopicAtIndex(1));
-                b1.setText(tr.getTopicAtIndex(1).getTitle());
+                setBtnText();
 
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
@@ -99,7 +102,7 @@ public class MainActivity extends ActionBarActivity {
 
                 // add data to be passed to next activity
                 nextActivity.putExtra("topic", tr.getTopicAtIndex(2));
-                b2.setText(tr.getTopicAtIndex(2).getTitle());
+                setBtnText();
 
                 if (nextActivity.resolveActivity(getPackageManager()) != null) {
                     startActivity(nextActivity); // opens a new activity
@@ -129,6 +132,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         checkAirplaneMode();
+        //setBtnText();
     }
 
     private void checkAirplaneMode() {
@@ -227,6 +231,30 @@ public class MainActivity extends ActionBarActivity {
 
     public static Context getAppContext() {
         return activity;
+    }
+
+    public static void saveJson(JSONArray ja){
+        // try to write the content
+        try {
+            // open myfilename.txt for writing
+            OutputStreamWriter out = new OutputStreamWriter(getAppContext().openFileOutput("quizdata.json", Context.MODE_PRIVATE));
+            // write the contents on mySettings to the file
+            out.write(ja.toString());
+            // close the file
+            out.close();
+        } catch (java.io.IOException e) {
+            //do something if an IOException occurs.
+        }
+    }
+
+    public void setBtnText(){
+        TopicRepository tr = QuizApp.getInstance().getTr();
+        Button b0 = (Button) findViewById(R.id.btn0);
+        b0.setText(tr.getTopicAtIndex(0).getTitle());
+        Button b1 = (Button) findViewById(R.id.btn1);
+        b1.setText(tr.getTopicAtIndex(1).getTitle());
+        Button b2 = (Button) findViewById(R.id.btn2);
+        b2.setText(tr.getTopicAtIndex(2).getTitle());
     }
 
 }

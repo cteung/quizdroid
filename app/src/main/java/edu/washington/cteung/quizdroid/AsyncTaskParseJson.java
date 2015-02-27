@@ -9,6 +9,7 @@ import org.json.JSONArray;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 /**
  * Created by chris_000 on 2/25/2015.
@@ -38,7 +39,7 @@ public class AsyncTaskParseJson extends AsyncTask<String, String, String> {
             json = jParser.getJSONFromUrl(MainActivity.url);
             QuizApp.getInstance().setTr(new TopicRepository(json));
             dl = true;
-
+            MainActivity.saveJson(json);
         }catch (Exception e) {
             dl = false;
         }
@@ -47,6 +48,7 @@ public class AsyncTaskParseJson extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String strFromDoInBg) {
+
         if (!dl){
             alertDialog = new AlertDialog.Builder(MainActivity.getAppContext());
             alertDialog.setTitle("Sorry!");

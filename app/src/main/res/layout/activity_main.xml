@@ -9,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Math"
+        android:text="Science!"
         android:id="@+id/btn0"
         android:layout_marginTop="78dp"
         android:layout_below="@+id/textView"
@@ -18,7 +18,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Physics"
+        android:text="Marvel Super Heros"
         android:id="@+id/btn1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -26,7 +26,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Marvel Super Heroes"
+        android:text="Mathmatics"
         android:id="@+id/btn2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

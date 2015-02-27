@@ -41,9 +41,9 @@ public class TopicRepository {
 
                 for (int j = 0; j < q.length(); j++){
 
-                    String text = q.getJSONObject(i).getString("text");
-                    String answer = q.getJSONObject(i).getString("answer");
-                    String a = q.getJSONObject(i).getString("answers");
+                    String text = q.getJSONObject(j).getString("text");
+                    String answer = q.getJSONObject(j).getString("answer");
+                    String a = q.getJSONObject(j).getString("answers");
 
                     JSONArray answers = new JSONArray(a);
 
@@ -54,7 +54,7 @@ public class TopicRepository {
 
                     String[] as = new String[]{zero, one, two, three};
 
-                    qu.add(new Question(text, as, Integer.parseInt(answer)));
+                    qu.add(new Question(text, as, Integer.parseInt(answer)-1));
 
                 }
 
